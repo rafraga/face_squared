@@ -1,0 +1,44 @@
+<div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+			<h3 class="modal-title" id="lineModalLabel">Save Video Stream</h3>
+		</div>
+		<div class="modal-body">
+      <!-- content goes here -->
+			<form id="streamForm">
+        <div id="map-places-container">
+					<p>Enter name for video</p>
+        	<div class="form-group">
+			    	<input id="streamName" name="streamName" type="text" placeholder="Stream Name"></input>
+			    </div>
+					<p>URL</p>
+        	<div class="form-group">
+			    	<input id="streamUrl" name="streamUrl" type="text"></input>
+			    </div>
+					<p>Duration</p>
+        	<div class="form-group">
+			    	<input id="streamDuration" name="streamUrl" type="text"></input>
+			    </div>
+					<p>Number of Faces</p>
+        	<div class="form-group">
+			    	<input id="streamFaceCount" name="streamUrl" type="text"></input>
+			    </div>
+					<p>Data</p>
+        	<p id="streamData" class="form-group">
+			    </p>
+				</div>
+				<button id="streamSubmit" class="btn btn-primary" >Submit Stream</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </form>
+		</div>
+	</div>
+	
+  </div>
+
+</div>
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRcvaMpIKjj3OAWJan2G9SXrfGAkjBCi4&libraries=places&callback=initAutocomplete"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+

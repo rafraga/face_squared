@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="/assets/css/screenshots.css">
+{{> nav }}
+{{> login-modal }}
+{{> new-screenshot-modal }}
+<div class="all-screenshots-container container">
+	
+	<div class="row">
+		{{#if screenshot }}
+		{{#each screenshot}}
+		<div class="screenshot-container col-xs-12 col-sm-6 col-lg-6">
+			<div class="screenshot-subcontainer screenshot-default">
+				<h3 class="lead">
+					screenshot: {{ this.id }} Test screenshot name
+				</h3>
+					<div class="destination-container">
+							{{!-- {{ riskAnalysis }} --}}
+						<p class="destination">
+							{{ this.dataValues.destination }}
+						</p>
+					</div>
+					<button type="button" class="btn btn-circle"><i class="">10</i></button>
+				</div>
+			</div>
+		</div>
+		{{/each}}
+		{{/if}}
+	<button id="add-screenshot-button" data-toggle="modal" data-target="#squarespaceModal" type="button" class="btn btn-circle"><i class="glyphicon glyphicon-plus"></i></button>
+	</div>
+</div>

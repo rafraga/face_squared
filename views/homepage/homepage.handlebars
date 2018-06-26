@@ -1,0 +1,78 @@
+{{!-- . --}}
+<script src="/facedect/face-api.js"></script>
+<script src="/facedect/axios.min.js"></script>
+<script src="/facedect/commons.js"></script>
+<!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous"> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script> -->
+<script type="text/javascript" src="/facedect/html2canvas.js"></script>
+<link rel="stylesheet" href="/assets/css/stream.css"> {{> nav }} {{> login-modal }} {{> new-stream-modal }}
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRcvaMpIKjj3OAWJan2G9SXrfGAkjBCi4&libraries=places&callback=initAutocomplete"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<br>
+<br>
+<br>
+<div id="all">
+<div class="row" style="height:525px;overflow: hidden">
+  <div class="stream-container col-xs-12 col-sm-12 col-lg-12" style="height:525px;overflow: hidden">
+    <div class="stream-subcontainer stream-default" style="height:480px;overflow: hidden">
+     
+    <center>
+      <div id="header" style="height:30px;right: 0;left: 0;margin-right: auto;margin-left: auto;min-height: 7em;width: 100%;top: 30em;background-color:white">
+        <div id='youtube_thumb'>
+          <h6>Loading...</h6>
+        </div>
+        <button class="waves-effect waves-light btn-small" id="proceed_button" style="position: center;right: 0;left: 0;margin-right: auto;margin-left: auto"
+          onclick="loadScript('/facedect/facedetection_js.js');" value="Proceed" disabled='disabled'>
+          <h6>START!</h6>
+        </button>
+        <br>
+        <div id="video_div"></div>
+        <canvas id="overlay" />
+      </div>
+      <div id="spaces">
+        <br>
+      </div>
+      <div id="loading_div"></div>
+      <div id="spaces2">
+      <br>
+      </div>
+      <div style="height:120px;overflow-y:hidden;overflow-x:hidden;right: 0;left: 0;margin-right: auto;margin-left: auto;min-height: 20em;width: 90%;text-align: left;background-color:white" id="results-view"></div>
+      
+        <div id="faces_view"></div>
+      
+    </center>
+     
+    </div>
+  </div>
+</div>
+</div>
+<div id="add_video_div"></div>
+<!--<div class="all-streams-container container"></div>-->
+<div id="spaces3"></div>
+<div class="row">
+  {{#if stream }} {{#each stream}}
+  <div class="stream-container col-xs-12 col-sm-6 col-lg-6">
+    <div class="stream-subcontainer stream-default">
+      <h3 class="lead">
+        Stream Name: {{ this.name }}
+      </h3>
+      <p>Stream Id: {{this.id}}</p>
+      <p>Stream Length: {{this.duration}}</p>
+      <p>Total Faces Detected: {{this.faces}}</p>
+      <p>URL: {{ this.url }}</p>
+      <div class="hidden-data-div"><p id="data-{{this.id}}">{{this.data}}</p></div>
+      <button class="btn btn-danger download_txt_button" id={{this.id}}>Download Data</button>
+      <button class="btn btn-danger delete-stream" id={{this.id}}>Delete</button>
+    </div>
+  </div>
+</div>
+</div>
+{{/each}} {{/if}}
+</div>
+</div>
